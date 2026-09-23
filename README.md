@@ -1,5 +1,9 @@
 # anthropic-claude-code-plugins
 
+<!-- HMZ PORTFOLIO STANDARD -->
+> Portfolio status: active · Visibility: public · Source of truth: current repository source.
+<!-- END HMZ PORTFOLIO STANDARD -->
+
 > **Curated Claude Code plugin pack** - Hand-picked Claude Code skills and plugins, starting with `frontend-design` - the skill that makes Claude produce design-system-grade UI instead of generic Bootstrap.
 
 <p align="center">
