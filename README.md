@@ -23,7 +23,7 @@ No install command is included in this repository. Do not assume that placing th
 
 - The repository contains a single skill file and this README.
 - The skill is instruction text, not executable plugin code.
-- The skill header references `LICENSE.txt`, but that file is not present in the current tree. The repository root includes [LICENSE](LICENSE); confirm redistribution terms before repackaging the skill.
+- The skill header references `LICENSE.txt`, but that file is not present in the current tree. The repository root includes the repository license file; confirm redistribution terms before repackaging the skill.
 - No tests, build process, or supported host-version matrix are included.
 
 ## Contributing
@@ -32,4 +32,4 @@ Open an issue with the affected file, expected behavior, and a reproducible exam
 
 ## License
 
-See [LICENSE](LICENSE). The skill metadata points to a missing `LICENSE.txt`; resolve that reference before redistributing the skill.
+See the repository license file. The skill metadata points to a missing `LICENSE.txt`; resolve that reference before redistributing the skill.
