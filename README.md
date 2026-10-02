@@ -1,157 +1,35 @@
-# anthropic-claude-code-plugins
+# Anthropic Claude Code Plugins
 
-> **Curated Claude Code plugin pack** - Hand-picked Claude Code skills and plugins, starting with `frontend-design` - the skill that makes Claude produce design-system-grade UI instead of generic Bootstrap.
+This repository currently contains one Claude Code skill: `frontend-design`. The skill is a Markdown guide for creating frontend interfaces. There is no plugin manifest, installer, runtime package, or application code in the current repository tree.
 
-<p align="center"><a href="https://github.com/hmzainjamil/anthropic-claude-code-plugins">Repository</a> · <a href="https://github.com/hmzainjamil/anthropic-claude-code-plugins/commits/main">Commits</a> · <a href="https://github.com/hmzainjamil/anthropic-claude-code-plugins/issues">Issues</a></p>
-<p align="center"><img alt="Documentation" src="https://img.shields.io/badge/documentation-deep%20editorial-lightgrey"> <img alt="Lifecycle" src="https://img.shields.io/badge/lifecycle-active-success"></p>
+## Included
 
-<!-- HMZ DEEP README v1 -->
+- [Frontend design skill](frontend-design/SKILL.md): design direction and implementation guidance for requested web interfaces.
 
-## At a glance
+The skill describes design practices. It does not itself provide a framework, component library, automated accessibility validation, or guaranteed production readiness. Review generated code and run project-specific checks before shipping.
 
-| Field | Current state |
-|---|---|
-| Repository | anthropic-claude-code-plugins |
-| Visibility | Public |
-| Lifecycle | Active |
-| Evidence basis | Current repository documentation and source-visible material |
+## Use
 
-## Why this exists
-
-**Curated Claude Code plugin pack** - Hand-picked Claude Code skills and plugins, starting with `frontend-design` - the skill that makes Claude produce design-system-grade UI instead of generic Bootstrap.
-
-The README focuses on plugin interfaces, installation, permissions, and actual plugin behavior rather than implying capabilities that are not present in the repository.
-
-## CONCEPTS
-
-| Concept | Location | Description |
-|---|---|---|
-| **frontend-design skill** | `frontend-design/SKILL.md` | Design-system-grade UI mode - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Repo README** | `README.md` | Curated plugin index - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/README.md) |
-| **Skill format** | `frontend-design/SKILL.md` | Claude Code SKILL.md spec compliance - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Install path** | `~/.claude/skills/` | Where the skill mounts locally - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Trigger heuristic** | `frontend-design/SKILL.md` | Auto-activates on UI prompts - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Token rules** | `frontend-design/SKILL.md` | Enforces design-token-only colors - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Component anatomy** | `frontend-design/SKILL.md` | Slot/state/variant pattern - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Motion rules** | `frontend-design/SKILL.md` | Opinionated easing + duration - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **Dark-mode rules** | `frontend-design/SKILL.md` | Light/dark parity required - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-| **A11y rules** | `frontend-design/SKILL.md` | WCAG 2.2 AA baseline - [Source](https://github.com/hmzainjamil/anthropic-claude-code-plugins/blob/main/frontend-design/SKILL.md) |
-
-## HOW IT WORKS
-
-```
-+---------------------------------------------------------+
-|                       INPUT                             |
-|   1 (and growing) - frontend-design                 |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  ORIENT / PARSE                         |
-|   - Validate inputs                                     |
-|   - Load skill / agent / tool definitions               |
-|   - Resolve config + secrets from .env                  |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  PLAN (Claude Sonnet)                   |
-|   - Decompose goal into ordered subtasks                |
-|   - Pick model per task (Sonnet / Haiku / Tier-0)       |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  EXECUTE (parallel)                     |
-|   - Spawn sub-agents / call tools                       |
-|   - Stream tokens, persist artifacts                    |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  VERIFY                                 |
-|   - Lint / typecheck / visual diff / QA agent           |
-|   - On failure -> re-prompt with error context          |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  SHIP                                   |
-|   - Write to disk . commit . PR . upload                |
-+---------------------------------------------------------+
-```
-
-## Install
+Clone the repository, then provide the skill file to the Claude Code environment you use, following that environment's current skill installation and discovery instructions:
 
 ```bash
 git clone https://github.com/hmzainjamil/anthropic-claude-code-plugins.git
 cd anthropic-claude-code-plugins
-
-# Per-repo install (try in order):
-bash install.sh 2>/dev/null || \
-npm install 2>/dev/null || \
-bun install 2>/dev/null || \
-pip install -r requirements.txt 2>/dev/null || true
 ```
 
-Environment:
+No install command is included in this repository. Do not assume that placing the folder under a particular path will activate the skill; follow the current host documentation.
 
-```bash
-cp .env.example .env  # if present
-# fill ANTHROPIC_API_KEY at minimum
-```
+## Scope and limits
 
-## Usage
+- The repository contains a single skill file and this README.
+- The skill is instruction text, not executable plugin code.
+- The skill header references `LICENSE.txt`, but that file is not present in the current tree. The repository root includes [LICENSE](LICENSE); confirm redistribution terms before repackaging the skill.
+- No tests, build process, or supported host-version matrix are included.
 
-```bash
-# Claude Code skill packs:
-/skill-name "your goal"
+## Contributing
 
-# CLI / scripts:
-python scripts/<script>.py --input ./input --output ./output
+Open an issue with the affected file, expected behavior, and a reproducible example. Avoid including credentials or private project data.
 
-# TypeScript projects:
-bun run dev    # or npm run dev
-```
+## License
 
-### Configuration knobs
-
-| Key | Default | Description |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | - (required) | Claude API key |
-| `MODEL` | `claude-sonnet-4-7` | Default LLM |
-| `MODEL_FALLBACK` | `claude-haiku-4` | Cheaper fallback |
-| `MAX_TOKENS` | `8192` | Per-call ceiling |
-| `TEMPERATURE` | `0.2` | Determinism dial |
-| `LOG_LEVEL` | `info` | debug / info / warn / error |
-| `OUT_DIR` | `./out` | Where artifacts land |
-| `CACHE_DIR` | `.cache` | Prompt cache root |
-| `PARALLELISM` | `4` | Sub-agent concurrency |
-| `RETRY_MAX` | `3` | Per-call retry budget |
-| `TIMEOUT_S` | `120` | Per-call timeout |
-| `DRY_RUN` | `false` | Plan-only, no side effects |
-
-### Case 3 - DTC brand, ad creative testing
-
-- Before: $2K/month UGC creator retainer, 4 ads/month.
-- After: 30+ ad variants/week via Arcads + Claude, A/B-tested.
-- Result: 3x creative velocity, 41% lower CAC after 6 weeks.
-
-## Security
-
-- Never commit API keys. `.env` is in `.gitignore` by default.
-- Use [git-secret](https://git-secret.io/) or 1Password CLI for team secret sharing.
-- Review the QA / safety layer for any tool that writes to disk or runs shells (see `mac_safety.py` style guards).
-- Vulnerability reports: open a private GitHub Security Advisory.
-
-## Limitations
-
-- Claude Code behavior can change independently of this repository.
-- Plugin compatibility depends on the host version and supported interfaces.
-- Quantitative performance claims require reproducible tests.
-
-## Related
-
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) - official docs
-- [Anthropic Console](https://console.anthropic.com) - API keys + billing
-- [Crawlee](https://crawlee.dev) - web scraping framework
-- [hmz-claude-code-best-practice](https://github.com/hmzainjamil/hmz-claude-code-best-practice) - sister repo
-
-## Maintainer
-
-[hmzainjamil](https://github.com/hmzainjamil)
+See [LICENSE](LICENSE). The skill metadata points to a missing `LICENSE.txt`; resolve that reference before redistributing the skill.
